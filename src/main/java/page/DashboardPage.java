@@ -17,10 +17,25 @@ public class DashboardPage {
 	// Element Liberary
 	@FindBy(how = How.XPATH, using = "//H2[contains(text(), ' Dashboard ')]")
 	WebElement DASHBOARD_VALIDATION_ELEMENT;
+	
+	@FindBy(how = How.XPATH, using = "//span[contains(text(), 'Bank & Cash')]")
+	WebElement BankAndCash;
+
+	@FindBy(how = How.XPATH, using = "//a[contains(text(), 'New Account')]")
+	WebElement NewAccount;
+	
 
 	// Interactive Method
 	public void validateDashboard() {
 		Assert.assertEquals(DASHBOARD_VALIDATION_ELEMENT.getText(), "Dashboard", "Wrong page!!");
+	}
+	
+	public void ClickBankAndCash() {
+		BankAndCash.click();
+	}
+
+	public void ClickNewAccount() {
+		NewAccount.click();
 	}
 
 }

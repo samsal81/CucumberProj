@@ -3,6 +3,8 @@ package addCustomerSteps;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -36,7 +38,7 @@ public class AddCustomerSteps {
 	@When("^User enters username \"([^\"]*)\" and password \"([^\"]*)\" and click login$")
 	public void user_enters_username_and_password_and_click_login(String username, String password) throws Throwable {
 		login.Login(username, password);
-	   
+
 	}
 
 	@When("^land on the dashboard$")
@@ -54,22 +56,34 @@ public class AddCustomerSteps {
 
 	}
 
-	@Then("^fill out the new customer information and submit$")
-	public void fill_out_the_new_customer_information_and_submit() throws Throwable {
+	@Then("^fill out the new customer information and submit \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+	public void fill_out_the_new_customer_information_and_submit(String name, String company, String group, String email, String phoneNum, String address, String city, String state, String zip, String country, String password) throws Throwable {
 
-		/*
-		 * addcus.enterName(name); addcus.enterCompanyName(company);
-		 * addcus.enterGroupName(group); addcus.enterEmail(email);
-		 * addcus.enterPhoneNumber(phoneNum); addcus.enterAddress(address);
-		 * addcus.enterCity(city); addcus.enterZip(zip);
-		 * addcus.enterCountryName(country); addcus.enterPassword(password);
-		 * addcus.enterCPassword(cpassword); addcus.clickSubmitButton();
-		 */
+		addcus.enterName(name);
+		addcus.enterCompanyName(company);
+		addcus.enterGroupName(group);
+		addcus.enterEmail(email);
+		addcus.enterPhoneNumber(phoneNum);
+		addcus.enterAddress(address);
+		addcus.enterCity(city);
+		addcus.enterState(state);
+		addcus.enterZip(zip);
+		addcus.enterCountryName(country);
+		addcus.enterPassword(password);
+		addcus.enterCPassword(password);
+		addcus.clickSubmitButton();
 
 	}
 
 	@Then("^validate that the customer was created$")
 	public void validate_that_the_customer_was_created() throws Throwable {
-
+		addcus.clickListCustomersButton();
+		addcus.verifyEnteredNameAndCheckView();
+		Thread.sleep(3000);
+	}
+	
+	@After
+	public void closeBrowser() {
+		BrowserFactory.tearDown();
 	}
 }
