@@ -5,11 +5,13 @@ import org.openqa.selenium.support.PageFactory;
 
 import cucumber.api.java.en.Then;
 import page.AddAccountPage;
+import util.BrowserFactory;
 
 public class AddAccountSteps extends BaseStep {
 	
 	WebDriver driver = GetDriver();
 	AddAccountPage addacc = PageFactory.initElements(driver, AddAccountPage.class);
+	BrowserFactory browserfactory;
 
 	@Then("^fill out the new account information and submit \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void fill_out_the_new_account_information_and_submit(String accountTitle, String description,
@@ -26,7 +28,9 @@ public class AddAccountSteps extends BaseStep {
 
 	@Then("^validate that the account was created$")
 	public void validate_that_the_account_was_created() throws Throwable {
+		
 		addacc.AssertAccountCreatedSuccessfully();
+
 	}
 
 
