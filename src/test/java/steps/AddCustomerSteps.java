@@ -4,22 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 import page.AddCustomerPage;
-import page.DashboardPage;
 
 public class AddCustomerSteps extends BaseStep {
-	
+
 	WebDriver driver = GetDriver();
 	AddCustomerPage addcus = PageFactory.initElements(driver, AddCustomerPage.class);
-	DashboardPage dash = PageFactory.initElements(driver, DashboardPage.class);
-
-	@When("^land on the dashboard$")
-	public void land_on_the_dashboard() throws Throwable {
-
-		dash.validateDashboard();
-
-	}
 
 	@Then("^go to customers to add a new customer$")
 	public void go_to_customers_to_add_a_new_customer() throws Throwable {

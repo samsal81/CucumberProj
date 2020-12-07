@@ -5,19 +5,11 @@ import org.openqa.selenium.support.PageFactory;
 
 import cucumber.api.java.en.Then;
 import page.AddAccountPage;
-import page.DashboardPage;
 
 public class AddAccountSteps extends BaseStep {
 	
 	WebDriver driver = GetDriver();
-	DashboardPage dash = PageFactory.initElements(driver, DashboardPage.class);
 	AddAccountPage addacc = PageFactory.initElements(driver, AddAccountPage.class);
-
-	@Then("^go to Bank and Cash click on New Account$")
-	public void go_to_Bank_and_Cash_click_on_New_Account() throws Throwable {
-		dash.ClickBankAndCash();
-		dash.ClickNewAccount();
-	}
 
 	@Then("^fill out the new account information and submit \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void fill_out_the_new_account_information_and_submit(String accountTitle, String description,
