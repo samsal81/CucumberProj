@@ -6,7 +6,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
   features="classpath:features",
-  glue="addCustomerSteps",
+  glue="steps",
   tags="@addCustomer",
   monochrome=true,
   dryRun=false,
