@@ -1,4 +1,4 @@
-@addAccount
+@addAccount @Regression
 Feature: Validate Account Adding Functionality 
 
 Background: 

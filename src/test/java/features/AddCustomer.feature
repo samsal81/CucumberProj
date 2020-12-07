@@ -1,4 +1,4 @@
-@addCustomer 
+@addCustomer @Regression
 Feature: Validate Customer Adding Functionality 
 
 Background: 

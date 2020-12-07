@@ -1,4 +1,4 @@
-@login 
+@login @Regression
 Feature: validate login functionality 
 
 Background: 
