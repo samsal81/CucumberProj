@@ -28,7 +28,11 @@ public class AddAccountSteps extends BaseStep {
 
 	@Then("^validate that the account was created$")
 	public void validate_that_the_account_was_created() throws Throwable {
+<<<<<<< HEAD
 		
+=======
+		browserfactory.takeScreenshotAtEndOfTest(driver);
+>>>>>>> branch 'master' of https://github.com/samsal81/CucumberProj.git
 		addacc.AssertAccountCreatedSuccessfully();
 
 	}

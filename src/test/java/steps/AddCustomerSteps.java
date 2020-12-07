@@ -45,6 +45,7 @@ public class AddCustomerSteps extends BaseStep {
 	@Then("^validate that the customer was created$")
 	public void validate_that_the_customer_was_created() throws Throwable {
 		addcus.clickListCustomersButton();
+		browserfactory.takeScreenshotAtEndOfTest(driver);
 		addcus.verifyEnteredNameAndCheckView();
 
 	}
