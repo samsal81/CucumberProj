@@ -4,7 +4,6 @@ Feature: validate login functionality
 Background: 
 	Given User on Techfios login page 
 	
-	
 @Scenario1
 Scenario: User should be able to login with valid credential 
 	When User enters username "demo@techfios.com" 

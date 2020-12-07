@@ -4,7 +4,7 @@ Feature: Validate Customer Adding Functionality
 Background: 
 	Given User on Techfios login page 
 	
-	
+@Scenario1
 Scenario Outline: User should be able add a customer 
 	When User enters username "<username>" and password "<password>" and click login
 	And land on the dashboard 
