@@ -1,5 +1,7 @@
 package steps;
 
+import java.io.IOException;
+
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -61,11 +63,11 @@ public class LoginSteps extends BaseStep {
 	@Then("^User should land on dashboard page$")
 	public void user_should_land_on_dashboard_page() throws Throwable {
 		Assert.assertEquals(driver.getTitle(), "Dashboard- iBilling");
-		browserfactory.takeScreenshotAtEndOfTest(driver);
 	}
 
 	@After
-	public void closeBrowser() {
+	public void closeBrowser() throws IOException {
+		browserfactory.takeScreenshotAtEndOfTest(driver);
 		BrowserFactory.tearDown();
 	}
 
