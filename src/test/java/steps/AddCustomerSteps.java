@@ -5,11 +5,13 @@ import org.openqa.selenium.support.PageFactory;
 
 import cucumber.api.java.en.Then;
 import page.AddCustomerPage;
+import util.BrowserFactory;
 
 public class AddCustomerSteps extends BaseStep {
 
 	WebDriver driver = GetDriver();
 	AddCustomerPage addcus = PageFactory.initElements(driver, AddCustomerPage.class);
+	BrowserFactory browserfactory;
 
 	@Then("^go to customers to add a new customer$")
 	public void go_to_customers_to_add_a_new_customer() throws Throwable {
@@ -43,6 +45,7 @@ public class AddCustomerSteps extends BaseStep {
 	@Then("^validate that the customer was created$")
 	public void validate_that_the_customer_was_created() throws Throwable {
 		addcus.clickListCustomersButton();
+		browserfactory.takeScreenshotAtEndOfTest(driver);
 		addcus.verifyEnteredNameAndCheckView();
 		Thread.sleep(3000);
 	}
