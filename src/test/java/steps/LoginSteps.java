@@ -15,19 +15,19 @@ import page.LoginPage;
 import util.BrowserFactory;
 
 public class LoginSteps extends BaseStep {
-	
+
 	WebDriver driver;
 	LoginPage login;
 	BrowserFactory browserfactory;
-	
+
 	@Before
 	public void setup() {
-		
+
 		driver = GetDriver();
 		login = PageFactory.initElements(driver, LoginPage.class);
 		browserfactory = PageFactory.initElements(driver, BrowserFactory.class);
 	}
-	
+
 	@Given("^User on Techfios login page$")
 	public void user_on_Techfios_login_page() throws Throwable {
 
@@ -35,7 +35,7 @@ public class LoginSteps extends BaseStep {
 		Assert.assertEquals(driver.getTitle(), "Login - iBilling");
 
 	}
-	
+
 	@When("^User enters username \"([^\"]*)\"$")
 	public void user_enters_username(String userName) throws Throwable {
 
@@ -48,7 +48,7 @@ public class LoginSteps extends BaseStep {
 		// String password = "abc123";
 		login.enterPassword(password);
 	}
-	
+
 	@When("^User enters username \"([^\"]*)\" and password \"([^\"]*)\" and click login$")
 	public void user_enters_username_and_password_and_click_login(String username, String password) throws Throwable {
 		login.Login(username, password);
@@ -65,10 +65,10 @@ public class LoginSteps extends BaseStep {
 		Assert.assertEquals(driver.getTitle(), "Dashboard- iBilling");
 	}
 
-	@After
-	public void closeBrowser() throws IOException {
-		browserfactory.takeScreenshotAtEndOfTest(driver);
-		BrowserFactory.tearDown();
-	}
+	/*
+	 * @After public void closeBrowser() throws IOException {
+	 * browserfactory.takeScreenshotAtEndOfTest(driver); BrowserFactory.tearDown();
+	 * }
+	 */
 
 }
