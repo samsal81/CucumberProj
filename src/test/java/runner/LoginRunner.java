@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
   features="classpath:features",
   glue="steps",
-  tags="@login",
+  tags="@LoginScenario2",
   monochrome=true,
   dryRun=false,
   plugin= {

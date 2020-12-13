@@ -26,11 +26,6 @@ public class BrowserFactory {
 
 	}
 
-	public static void tearDown() {
-		driver.close();
-		driver.quit();
-	}
-
 	public void takeScreenshotAtEndOfTest(WebDriver driver) throws IOException {
 		TakesScreenshot ts = ((TakesScreenshot) driver);
 		SimpleDateFormat formatter = new SimpleDateFormat("ddMMyy_HHmmss");

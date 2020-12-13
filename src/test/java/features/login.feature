@@ -1,22 +1,25 @@
-@login @Regression
+@login @Regression 
 Feature: validate login functionality 
 
-Background: 
-	Given User on Techfios login page 
-	
-@Scenario1
+@LoginScenario1 
 Scenario: User should be able to login with valid credential 
+	Given User on Techfios login page 
 	When User enters username "demo@techfios.com" 
 	And User enters password "abc123" 
 	And User clicks on sign in button 
 	Then User should land on dashboard page 
+	#Then User closes browser 
 	
-@Scenario2
+ 	
+@LoginScenario2 
 Scenario Outline: User should be able to login with valid credential 
+	Given User on Techfios login page 
 	When User enters username "<username>" 
 	And User enters password "<password>" 
 	And User clicks on sign in button 
-	Then User should land on dashboard page 
+	Then User should land on dashboard page
+	#Then User closes browser
+	
 	
 	Examples: 
 		| username                  | password   |
